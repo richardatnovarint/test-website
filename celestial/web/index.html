@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Homepage</title>
+    <meta name="description" content="Celestial — designed and built with Celestial" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Homepage" />
+    <meta property="og:description" content="Celestial — designed and built with Celestial" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="el-frame-1783091438812 page" style="position:relative;left:auto;top:auto;width:100%;min-height:3600px">
+      <div class="el-group-1783091366258-969789">
+        <section class="el-element-1783091250183"></section>
+        <div class="el-element-1783091322942"></div>
+        <p class="el-element-1783091339053">CELESTIAL</p>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="mf-ripple-group-1783091366258-969789" x="-15%" y="-15%" width="130%" height="130%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.0154 0.0216" numOctaves="2" seed="4" result="t">
+    <animate attributeName="baseFrequency" dur="6.00s" values="0.0154 0.0216;0.0246 0.0345;0.0108 0.0151;0.0154 0.0216" repeatCount="indefinite"/>
+  </feTurbulence>
+  <feDisplacementMap in="SourceGraphic" in2="t" scale="14.7" xChannelSelector="R" yChannelSelector="G"/>
+</filter></defs></svg>
+      </div>
+      <nav class="el-element-1783091392483 cel-nav" data-orientation="horizontal" data-trigger="auto" data-collapse="768" data-cel-sticky-bar="0" style="--cn-gap:8px;--cn-color:#111827;--cn-hover:#2563eb;--cn-active:#2563eb;--cn-radius:8px;--cn-pad-y:8px;--cn-pad-x:14px;--cn-sub-bg:rgba(0, 0, 0, 0);--cn-sub-radius:10px;--cn-font-size:15px;--cn-font-weight:500;--cn-font-family:'Inter', system-ui, sans-serif"><button class="cel-nav__burger" type="button" aria-label="Toggle menu">☰</button><ul class="cel-nav__list"><li class="cel-nav__item"><a class="cel-nav__link" aria-current="page" href="./homepage.html">Home</a></li><li class="cel-nav__item"><a class="cel-nav__link" href="#">Features</a></li><li class="cel-nav__item cel-nav__item--has-sub"><a class="cel-nav__link" href="#">Products</a><ul class="cel-nav__sub"><li class="cel-nav__item"><a class="cel-nav__link" href="#">Overview</a></li><li class="cel-nav__item"><a class="cel-nav__link" href="#">Pricing</a></li></ul></li><li class="cel-nav__item"><a class="cel-nav__link" href="./contact.html">Contact</a></li></ul></nav>
+    </main>
+    <script>(function(){function setupNav(nav){
+  if (nav.__celReady) return; nav.__celReady = true;
+  var collapseAt = parseInt(nav.getAttribute('data-collapse') || '0', 10);
+  var trigger = nav.getAttribute('data-trigger') || 'auto';
+  var canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  function applyCollapse() {
+    if (collapseAt > 0 && window.innerWidth <= collapseAt) {
+      nav.classList.add('cel-nav--collapsed');
+    } else {
+      nav.classList.remove('cel-nav--collapsed', 'cel-nav--open');
+    }
+  }
+  applyCollapse();
+  window.addEventListener('resize', applyCollapse);
+  var burger = nav.querySelector('.cel-nav__burger');
+  if (burger) burger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    nav.classList.toggle('cel-nav--open');
+  });
+  var links = nav.querySelectorAll('.cel-nav__item--has-sub > .cel-nav__link');
+  for (var i = 0; i < links.length; i++) {
+    (function (link) {
+      link.addEventListener('click', function (e) {
+        var collapsed = nav.classList.contains('cel-nav--collapsed');
+        var href = link.getAttribute('href');
+        var noHref = !href || href === '#';
+        var useClick = collapsed || trigger === 'click' || !canHover || noHref;
+        if (!useClick) return;
+        e.preventDefault();
+        var item = link.parentElement;
+        var open = item.classList.contains('cel-nav__item--open');
+        var sibs = item.parentElement.children;
+        for (var k = 0; k < sibs.length; k++) if (sibs[k] !== item) sibs[k].classList.remove('cel-nav__item--open');
+        item.classList.toggle('cel-nav__item--open', !open);
+      });
+    })(links[i]);
+  }
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target)) {
+      nav.classList.remove('cel-nav--open');
+      var open = nav.querySelectorAll('.cel-nav__item--open');
+      for (var j = 0; j < open.length; j++) open[j].classList.remove('cel-nav__item--open');
+    }
+  });
+}var navs=document.querySelectorAll('.cel-nav');for(var n=0;n<navs.length;n++)setupNav(navs[n]);})();</script>
+    <script src="./celestial-runtime.js" defer></script>
+  </body>
+</html>
